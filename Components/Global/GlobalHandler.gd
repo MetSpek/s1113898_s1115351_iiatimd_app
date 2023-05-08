@@ -15,6 +15,7 @@ func changeTheme(theme):
 
 func addCustomLabel(label):
 	custom_labels.append(label)
+	custom_labels.sort()
 	#Save the data
 
 func removeCustomLabel(label):

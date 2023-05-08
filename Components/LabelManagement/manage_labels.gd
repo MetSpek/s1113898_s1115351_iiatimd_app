@@ -20,17 +20,26 @@ func _on_add_label_button_pressed():
 		print("Label already exists!")
 		return
 	
-	#Makes a new label item
-	var item = label_item.instantiate()
-	item.label = text
-	label_container.add_child(item)
-	
 	#Adds the label to the global custom labels list
 	GlobalHandler.addCustomLabel(text)
+	
+	#Creates the labels
+	createLabels()
 	
 	#Resets the text input to none
 	add_label_text_edit.text = ""
 	add_label_button.disabled = true
+
+func createLabels():
+	var children = label_container.get_children()
+	for child in children:
+		label_container.remove_child(child)
+	
+	for label in GlobalHandler.custom_labels:
+		#Makes a new label item
+		var item = label_item.instantiate()
+		item.label = label
+		label_container.add_child(item)
 
 #Disables/Enables the button when text is/isn't present
 func _on_add_label_text_edit_text_changed(new_text):
