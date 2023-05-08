@@ -14,6 +14,21 @@ config/name="Art Journal"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalHandler="*res://Components/Global/GlobalHandler.gd"
+
+[display]
+
+window/size/viewport_width=360
+window/size/viewport_height=740
+window/handheld/orientation=1
+
+[internationalization]
+
+locale/translation_remaps={}
+locale/translations=PackedStringArray("res://Resources/Translation/ArtJournal - Translation.en_US.translation", "res://Resources/Translation/ArtJournal - Translation.nl_NL.translation")
+
 [rendering]
 
 renderer/rendering_method="mobile"
