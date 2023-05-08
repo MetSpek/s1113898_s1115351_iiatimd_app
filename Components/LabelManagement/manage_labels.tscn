@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://codwbw3x5wsxb"]
+
+[ext_resource type="Script" path="res://Components/LabelManagement/manage_labels.gd" id="1_8x6bb"]
+
+[node name="ManageLabels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8x6bb")
+
+[node name="ManageLabelsContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = -55.0
+offset_right = 153.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="ManageLabelsContainer"]
+layout_mode = 2
+text = "ManageLabel"
+horizontal_alignment = 1
+
+[node name="AddLabelContainer" type="HBoxContainer" parent="ManageLabelsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="AddLabelTextEdit" type="LineEdit" parent="ManageLabelsContainer/AddLabelContainer"]
+custom_minimum_size = Vector2(225, 35)
+layout_mode = 2
+placeholder_text = "AddPlaceHolder"
+
+[node name="AddLabelButton" type="Button" parent="ManageLabelsContainer/AddLabelContainer"]
+layout_mode = 2
+text = "AddLabel"
+
+[node name="LabelScrollContainer" type="ScrollContainer" parent="ManageLabelsContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="LabelContainer" type="VBoxContainer" parent="ManageLabelsContainer/LabelScrollContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[connection signal="text_changed" from="ManageLabelsContainer/AddLabelContainer/AddLabelTextEdit" to="." method="_on_add_label_text_edit_text_changed"]
+[connection signal="pressed" from="ManageLabelsContainer/AddLabelContainer/AddLabelButton" to="." method="_on_add_label_button_pressed"]

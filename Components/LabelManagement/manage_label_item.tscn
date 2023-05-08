@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvpjlwvl4r1go"]
+
+[ext_resource type="Script" path="res://Components/LabelManagement/manage_label_item.gd" id="1_8iy6m"]
+
+[node name="ManageLabelItem" type="Control"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 3
+anchor_bottom = 0.047
+offset_bottom = -34.78
+script = ExtResource("1_8iy6m")
+
+[node name="LabelContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 46.0
+offset_bottom = 35.0
+theme_override_constants/separation = 10
+
+[node name="RemoveButton" type="Button" parent="LabelContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+text = "-"
+
+[node name="LabelLabel" type="Label" parent="LabelContainer"]
+layout_mode = 2
+
+[connection signal="button_up" from="LabelContainer/RemoveButton" to="." method="_on_remove_button_button_up"]
