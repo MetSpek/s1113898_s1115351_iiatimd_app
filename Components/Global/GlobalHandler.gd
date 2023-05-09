@@ -7,17 +7,18 @@ var current_diary_view = "normal"
 
 var current_language = "en"
 
-var custom_labels = []
+var labels = []
 
 func changeTheme(theme):
 	current_theme = theme
 	print("Change theme to " + current_theme + " mode...")
 
 func addCustomLabel(label):
-	custom_labels.append(label)
+	labels.append(label)
+	labels.sort()
 	#Save the data
 
 func removeCustomLabel(label):
-	if custom_labels.find(label):
-		custom_labels.remove_at(custom_labels.find(label))
+	if labels.find(label):
+		labels.remove_at(labels.find(label))
 		#Save the data

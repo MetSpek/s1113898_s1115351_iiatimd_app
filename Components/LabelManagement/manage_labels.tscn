@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Components/LabelManagement/manage_labels.gd" id="1_8x6bb"]
 
-[node name="ManageLabels" type="Control"]
+[node name="ManageLabels" type="Control" groups=["ManageLabels"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8x6bb")
+label_screen_type = "add"
 
 [node name="ManageLabelsContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -55,5 +56,10 @@ layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
+[node name="DoneButton" type="Button" parent="ManageLabelsContainer"]
+layout_mode = 2
+text = "Done"
+
 [connection signal="text_changed" from="ManageLabelsContainer/AddLabelContainer/AddLabelTextEdit" to="." method="_on_add_label_text_edit_text_changed"]
 [connection signal="pressed" from="ManageLabelsContainer/AddLabelContainer/AddLabelButton" to="." method="_on_add_label_button_pressed"]
+[connection signal="button_up" from="ManageLabelsContainer/DoneButton" to="." method="_on_done_button_button_up"]
