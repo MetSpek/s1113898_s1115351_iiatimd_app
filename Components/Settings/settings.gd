@@ -1,5 +1,8 @@
 extends Control
 
+@onready var manage_labels = $ManageLabels
+@onready var settings_container = $SettingsContainer
+
 
 func _ready():
 	pass
@@ -35,4 +38,9 @@ func _on_language_button_item_selected(index):
 
 #Checks what to do when the manage labels button is pressed
 func _on_labels_button_pressed():
-	print("Go to labels menu...")
+	manage_labels.visible = true
+	settings_container.visible = false
+
+func closeLabelManagement():
+	manage_labels.visible = false
+	settings_container.visible = true

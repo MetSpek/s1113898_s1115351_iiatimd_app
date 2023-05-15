@@ -73,8 +73,8 @@ func _on_add_label_text_edit_text_changed(new_text):
 #Goes back to settings when in manage variant and goes back to add work when adding labels to an entry
 func _on_done_button_button_up():
 	match label_screen_type:
-		"manage":
-			print("Go back to settings")
+		"settings":
+			get_tree().call_group("Settings", "closeLabelManagement")
 		"add":
 			get_tree().call_group("AddLabels", "uncheckBox")
 			print("Add " + str(add_labels) + " labels to the entry")
