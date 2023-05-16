@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://i6ufkm5xqqww"]
+[gd_scene load_steps=4 format=3 uid="uid://i6ufkm5xqqww"]
 
 [ext_resource type="Script" path="res://Components/AddWork/add_work.gd" id="1_turug"]
 [ext_resource type="PackedScene" uid="uid://codwbw3x5wsxb" path="res://Components/LabelManagement/manage_labels.tscn" id="2_8lnsr"]
+[ext_resource type="Script" path="res://Components/AddWork/CameraController.gd" id="2_60y3i"]
 
 [node name="AddWork" type="Control" groups=["AddWork"]]
 layout_mode = 3
@@ -12,72 +13,96 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_turug")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="AddWorkContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="AddWorkContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_constants/separation = 25
 
-[node name="PictureContainer" type="VBoxContainer" parent="ScrollContainer/AddWorkContainer"]
+[node name="PictureContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer"]
+layout_mode = 2
+script = ExtResource("2_60y3i")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GalleryButton" type="Button" parent="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer"]
+layout_mode = 2
+text = "GalleryLabel"
+
+[node name="CameraButton" type="Button" parent="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer"]
+layout_mode = 2
+text = "CameraLabel"
+
+[node name="DetailContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer"]
 layout_mode = 2
 
-[node name="DetailContainer" type="VBoxContainer" parent="ScrollContainer/AddWorkContainer"]
-layout_mode = 2
-
-[node name="TitleEdit" type="LineEdit" parent="ScrollContainer/AddWorkContainer/DetailContainer"]
+[node name="TitleEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer"]
 layout_mode = 2
 placeholder_text = "TitleLabel"
 
-[node name="DescriptionEdit" type="TextEdit" parent="ScrollContainer/AddWorkContainer/DetailContainer"]
+[node name="DescriptionEdit" type="TextEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 placeholder_text = "DescriptionLabel"
 wrap_mode = 1
 
-[node name="DateContainer" type="HBoxContainer" parent="ScrollContainer/AddWorkContainer/DetailContainer"]
+[node name="DateContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer"]
 layout_mode = 2
 
-[node name="DateLabel" type="Label" parent="ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
+[node name="DateLabel" type="Label" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
 layout_mode = 2
 text = "DateLabel"
 
-[node name="DayEdit" type="LineEdit" parent="ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
+[node name="DayEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="MonthEdit" type="LineEdit" parent="ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
+[node name="MonthEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="YearEdit" type="LineEdit" parent="ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
+[node name="YearEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="LabelContainer" type="VBoxContainer" parent="ScrollContainer/AddWorkContainer"]
+[node name="LabelContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer"]
 layout_mode = 2
 
-[node name="AddLabelButton" type="Button" parent="ScrollContainer/AddWorkContainer/LabelContainer" groups=["AddWork"]]
+[node name="AddLabelButton" type="Button" parent="MarginContainer/ScrollContainer/AddWorkContainer/LabelContainer" groups=["AddWork"]]
 layout_mode = 2
 text = "AddLabelLabel"
 
-[node name="LabelLabel" type="Label" parent="ScrollContainer/AddWorkContainer/LabelContainer"]
+[node name="LabelLabel" type="Label" parent="MarginContainer/ScrollContainer/AddWorkContainer/LabelContainer"]
 layout_mode = 2
 text = "LabelsLabel"
 
-[node name="LabelsContainer" type="VBoxContainer" parent="ScrollContainer/AddWorkContainer/LabelContainer"]
+[node name="LabelsContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer/LabelContainer"]
 layout_mode = 2
 
-[node name="AddEntryButton" type="Button" parent="ScrollContainer/AddWorkContainer"]
+[node name="AddEntryButton" type="Button" parent="MarginContainer/ScrollContainer/AddWorkContainer"]
 layout_mode = 2
 text = "AddEntryLabel"
 
@@ -85,8 +110,10 @@ text = "AddEntryLabel"
 visible = false
 layout_mode = 1
 
-[connection signal="text_changed" from="ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/DayEdit" to="." method="_on_day_edit_text_changed"]
-[connection signal="text_changed" from="ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/MonthEdit" to="." method="_on_month_edit_text_changed"]
-[connection signal="text_changed" from="ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/YearEdit" to="." method="_on_year_edit_text_changed"]
-[connection signal="pressed" from="ScrollContainer/AddWorkContainer/LabelContainer/AddLabelButton" to="." method="_on_add_label_button_pressed"]
-[connection signal="button_up" from="ScrollContainer/AddWorkContainer/AddEntryButton" to="." method="_on_add_entry_button_button_up"]
+[connection signal="button_up" from="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer/GalleryButton" to="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer" method="_on_gallery_button_button_up"]
+[connection signal="button_up" from="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer/CameraButton" to="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer" method="_on_camera_button_button_up"]
+[connection signal="text_changed" from="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/DayEdit" to="." method="_on_day_edit_text_changed"]
+[connection signal="text_changed" from="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/MonthEdit" to="." method="_on_month_edit_text_changed"]
+[connection signal="text_changed" from="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/YearEdit" to="." method="_on_year_edit_text_changed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/AddWorkContainer/LabelContainer/AddLabelButton" to="." method="_on_add_label_button_pressed"]
+[connection signal="button_up" from="MarginContainer/ScrollContainer/AddWorkContainer/AddEntryButton" to="." method="_on_add_entry_button_button_up"]

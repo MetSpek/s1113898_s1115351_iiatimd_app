@@ -1,14 +1,14 @@
 extends Control
 
-@onready var day_edit = $ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/DayEdit
-@onready var month_edit = $ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/MonthEdit
-@onready var year_edit = $ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/YearEdit
+@onready var day_edit = $MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/DayEdit
+@onready var month_edit = $MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/MonthEdit
+@onready var year_edit = $MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/YearEdit
 var time = []
 
-@onready var scroll_container = $ScrollContainer
+@onready var scroll_container =$MarginContainer/ScrollContainer
 @onready var manage_labels = $ManageLabels
 
-@onready var labels_container = $ScrollContainer/AddWorkContainer/LabelContainer/LabelsContainer
+@onready var labels_container = $MarginContainer/ScrollContainer/AddWorkContainer/LabelContainer/LabelsContainer
 var label_item = preload("res://Components/LabelManagement/manage_label_item.tscn")
 
 func _ready():
