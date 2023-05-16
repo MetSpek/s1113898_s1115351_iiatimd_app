@@ -5,6 +5,7 @@ extends Control
 
 var label = ""
 
+
 func _ready():
 	set_text()
 
@@ -12,8 +13,9 @@ func _ready():
 func set_text():
 	label_label.text = label
 
-func uncheckBox():
-	add_button.button_pressed = false
+func uncheckBox(uncheck_label):
+	if label == uncheck_label:
+		add_button.button_pressed = false
 
 func _on_add_button_toggled(button_pressed):
 	if button_pressed:
