@@ -85,7 +85,7 @@ func _on_add_entry_button_button_up():
 	diary_entry["desc"] = description_edit.text
 	diary_entry["date"] = day_edit.text + "-" + month_edit.text + "-" + year_edit.text
 	
-	var img_string = "user://images/" + diary_entry["title"] + diary_entry["date"] + ".png"
+	var img_string = OS.get_executable_path().get_base_dir() + "/save/images/" + diary_entry["title"] + diary_entry["date"] + ".png"
 	diary_entry["img"] = img_string
 	if entry_img:
 		entry_img.save_png(diary_entry["img"])

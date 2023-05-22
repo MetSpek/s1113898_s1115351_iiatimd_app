@@ -1,6 +1,6 @@
 extends Node
 
-var DATA_FILE = "user://save/diarydata.save"
+var DATA_FILE = OS.get_executable_path().get_base_dir() + "/save"
 
 var current_theme = "dark"
 var dark_mode = preload("res://Resources/StandardTheme.tres")
@@ -11,6 +11,9 @@ var current_language = "en"
 
 var labels = []
 var diary_entries = []
+
+func _ready():
+	loadData()
 
 func saveData():
 	var save ={
@@ -29,7 +32,8 @@ func loadData():
 	var file = FileAccess.open(DATA_FILE, FileAccess.READ)
 	var data = file.get_line()
 	var json_file = JSON.parse_string(data)
-	return json_file
+	labels = json_file["labels"]
+	diary_entries = json_file["entries"]
 
 func changeTheme(theme):
 	current_theme = theme
