@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://i6ufkm5xqqww"]
+[gd_scene load_steps=6 format=3 uid="uid://i6ufkm5xqqww"]
 
 [ext_resource type="Script" path="res://Components/AddWork/add_work.gd" id="1_turug"]
 [ext_resource type="PackedScene" uid="uid://codwbw3x5wsxb" path="res://Components/LabelManagement/manage_labels.tscn" id="2_8lnsr"]
 [ext_resource type="Script" path="res://Components/AddWork/CameraController.gd" id="2_60y3i"]
+
+[sub_resource type="Gradient" id="Gradient_yqo32"]
+colors = PackedColorArray(0.725748, 0.304527, 0.0399123, 1, 0.998994, 0.607614, 0.549279, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dgccv"]
+gradient = SubResource("Gradient_yqo32")
+fill_to = Vector2(1, 0.688073)
 
 [node name="AddWork" type="Control" groups=["AddWork"]]
 layout_mode = 3
@@ -41,6 +48,7 @@ script = ExtResource("2_60y3i")
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+texture = SubResource("GradientTexture2D_dgccv")
 expand_mode = 1
 stretch_mode = 5
 

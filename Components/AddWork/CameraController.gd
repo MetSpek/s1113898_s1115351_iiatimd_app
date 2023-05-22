@@ -11,12 +11,10 @@ func _ready():
 		plugin = Engine.get_singleton(plugin_name)
 	else:
 		print("Could not load plugin: ", plugin_name)
-	
 	if plugin:
 		plugin.connect("image_request_completed", Callable(self, "_on_image_request_completed"))
 
 func _on_image_request_completed(dict):
-	title_edit.text = "YASDADSASD"
 	for img_buffer in dict.values():
 		var image = Image.new()
 		
@@ -28,11 +26,11 @@ func _on_image_request_completed(dict):
 			print("Error loading png/jpg buffer, ", error)
 		else:
 			texture_rect.texture = ImageTexture.new().create_from_image(image)
+			get_tree().call_group("AddWork", "setEntryImg", image)
 
 func _on_camera_button_button_up():
 	if plugin:
 		plugin.getCameraImage()
-		title_edit.text = "STARTO"
 	else:
 		print(plugin_name, " plugin not loaded!")
 

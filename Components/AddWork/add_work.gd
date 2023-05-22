@@ -1,5 +1,7 @@
 extends Control
 
+@onready var texture_rect = $MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/TextureRect
+
 @onready var day_edit = $MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/DayEdit
 @onready var month_edit = $MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/MonthEdit
 @onready var year_edit = $MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/YearEdit
@@ -10,6 +12,17 @@ var time = []
 
 @onready var labels_container = $MarginContainer/ScrollContainer/AddWorkContainer/LabelContainer/LabelsContainer
 var label_item = preload("res://Components/LabelManagement/manage_label_item.tscn")
+
+@onready var title_edit = $MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/TitleEdit
+@onready var description_edit = $MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DescriptionEdit
+
+
+var diary_entry = {"img": "",
+"title": "",
+"desc": "",
+"date": "",
+"labels": []}
+var entry_img
 
 func _ready():
 	setCurrentTime()
@@ -67,8 +80,21 @@ func _on_add_label_button_pressed():
 	scroll_container.visible = false
 
 func _on_add_entry_button_button_up():
-	print("CHECK ALL THE VALUES")
-	print("ADD THE ENTRY TO THE SAVE")
+	
+	diary_entry["title"] = title_edit.text
+	diary_entry["desc"] = description_edit.text
+	diary_entry["date"] = day_edit.text + "-" + month_edit.text + "-" + year_edit.text
+	
+	var img_string = "user://images/" + diary_entry["title"] + diary_entry["date"] + ".png"
+	diary_entry["img"] = img_string
+	if entry_img:
+		entry_img.save_png(diary_entry["img"])
+	
+	GlobalHandler.diary_entries.append(diary_entry)
+	GlobalHandler.saveData()
 
+func setEntryImg(image):
+	entry_img = image
+	
 
 
