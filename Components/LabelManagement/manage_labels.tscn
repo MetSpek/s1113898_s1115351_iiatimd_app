@@ -53,7 +53,6 @@ horizontal_scroll_mode = 0
 [node name="LabelContainer" type="VBoxContainer" parent="ManageLabelsContainer/LabelScrollContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_constants/separation = 10
 alignment = 1
 
 [node name="DoneButton" type="Button" parent="ManageLabelsContainer"]

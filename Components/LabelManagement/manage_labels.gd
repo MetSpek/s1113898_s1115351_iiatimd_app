@@ -24,10 +24,12 @@ func _ready():
 		"settings":
 			title.text = "ManageLabel"
 			label_item = manage_label_item
+			label_container.add_theme_constant_override("separation", 10)
 		"add":
 			title.text = "AddLabel"
 			label_item = add_label_item
 			createLabels(label_item)
+			label_container.add_theme_constant_override("separation", 25)
 
 func _on_add_label_button_pressed():
 	var text = add_label_text_edit.text.to_lower().capitalize()
@@ -56,6 +58,8 @@ func createLabels(label_type):
 	for label in GlobalHandler.labels:
 		#Makes a new label item
 		var item = label_type.instantiate()
+		if label_type == manage_label_item:
+			item.is_global_deletable = true
 		item.label = label
 		label_container.add_child(item)
 
@@ -76,6 +80,10 @@ func _on_done_button_button_up():
 		"settings":
 			get_tree().call_group("Settings", "closeLabelManagement")
 		"add":
-			get_tree().call_group("AddLabels", "uncheckBox")
+			var label_list = []
+			for label in label_container.get_children():
+				if label.get_child(0).get_child(0).button_pressed:
+					label_list.append(label.get_child(0).get_child(1).text)
+			get_tree().call_group("AddWork", "closeLabelManagement", label_list)
 			print("Add " + str(add_labels) + " labels to the entry")
 			print("Go back to the add work screen")
