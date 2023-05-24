@@ -24,6 +24,7 @@ GlobalHandler="*res://Components/Global/GlobalHandler.gd"
 window/size/viewport_width=360
 window/size/viewport_height=740
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/handheld/orientation=1
 
 [input]

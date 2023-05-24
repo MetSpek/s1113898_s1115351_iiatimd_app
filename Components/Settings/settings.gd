@@ -12,13 +12,6 @@ func changeLanguage(language):
 	GlobalHandler.current_language = language
 	TranslationServer.set_locale(GlobalHandler.current_language)
 
-#Checks what the status is of the Theme Button
-func _on_check_button_toggled(button_pressed):
-	if button_pressed:
-		GlobalHandler.changeTheme("dark")
-	else:
-		GlobalHandler.changeTheme("light")
-
 #Checks what the index is of the Diary View Button
 func _on_diary_button_item_selected(index):
 	match index:
@@ -44,3 +37,11 @@ func _on_labels_button_pressed():
 func closeLabelManagement():
 	manage_labels.visible = false
 	settings_container.visible = true
+
+	#Checks what the status is of the Theme Button
+func _on_theme_button_item_selected(index):
+	match index:
+		0:
+			GlobalHandler.changeTheme("dark")
+		1:
+			GlobalHandler.changeTheme("light")
