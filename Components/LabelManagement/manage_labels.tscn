@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://codwbw3x5wsxb"]
+[gd_scene load_steps=3 format=3 uid="uid://codwbw3x5wsxb"]
 
 [ext_resource type="Script" path="res://Components/LabelManagement/manage_labels.gd" id="1_8x6bb"]
+[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/StandardTheme.tres" id="1_niydl"]
 
 [node name="ManageLabels" type="Control" groups=["ManageLabels"]]
 layout_mode = 3
@@ -9,8 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_niydl")
 script = ExtResource("1_8x6bb")
-label_screen_type = "add"
 
 [node name="ManageLabelsContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -29,6 +30,7 @@ theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="ManageLabelsContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "ManageLabel"
 horizontal_alignment = 1
 
@@ -56,6 +58,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="DoneButton" type="Button" parent="ManageLabelsContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Done"
 
