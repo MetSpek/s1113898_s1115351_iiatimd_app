@@ -24,12 +24,13 @@ func _ready():
 		"settings":
 			title.text = "ManageLabel"
 			label_item = manage_label_item
+			createLabels(label_item)
 			label_container.add_theme_constant_override("separation", 10)
 		"add":
 			title.text = "AddLabel"
 			label_item = add_label_item
 			createLabels(label_item)
-			label_container.add_theme_constant_override("separation", 25)
+			label_container.add_theme_constant_override("separation", 30)
 
 func _on_add_label_button_pressed():
 	var text = add_label_text_edit.text.to_lower().capitalize()

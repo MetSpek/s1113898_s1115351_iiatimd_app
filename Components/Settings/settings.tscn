@@ -110,7 +110,6 @@ text = "ManageLabel"
 [node name="ManageLabels" parent="." instance=ExtResource("2_ahxb0")]
 visible = false
 layout_mode = 1
-label_screen_type = "settings"
 
 [connection signal="item_selected" from="SettingsContainer/ThemeContainer/ThemeButton" to="." method="_on_theme_button_item_selected"]
 [connection signal="item_selected" from="SettingsContainer/DiaryContainer/DiaryButton" to="." method="_on_diary_button_item_selected"]
