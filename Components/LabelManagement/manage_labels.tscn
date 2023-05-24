@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://codwbw3x5wsxb"]
 
 [ext_resource type="Script" path="res://Components/LabelManagement/manage_labels.gd" id="1_8x6bb"]
-[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/StandardTheme.tres" id="1_niydl"]
+[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/Themes/StandardTheme.tres" id="1_niydl"]
 
 [node name="ManageLabels" type="Control" groups=["ManageLabels"]]
 layout_mode = 3

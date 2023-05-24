@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvpjlwvl4r1go"]
 
 [ext_resource type="Script" path="res://Components/LabelManagement/manage_label_item.gd" id="1_8iy6m"]
-[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/StandardTheme.tres" id="1_iy3mb"]
+[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/Themes/StandardTheme.tres" id="1_iy3mb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obc32"]
 bg_color = Color(0.690196, 0.196078, 0.196078, 1)
