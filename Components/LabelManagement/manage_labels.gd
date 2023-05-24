@@ -84,7 +84,7 @@ func _on_done_button_button_up():
 			var label_list = []
 			for label in label_container.get_children():
 				if label.get_child(0).get_child(0).button_pressed:
-					label_list.append(label.get_child(0).get_child(1).text)
+					label_list.append(label.get_child(0).get_child(0).text)
 			get_tree().call_group("AddWork", "closeLabelManagement", label_list)
 			print("Add " + str(add_labels) + " labels to the entry")
 			print("Go back to the add work screen")

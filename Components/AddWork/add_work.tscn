@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://i6ufkm5xqqww"]
+[gd_scene load_steps=7 format=3 uid="uid://i6ufkm5xqqww"]
 
+[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/Themes/StandardTheme.tres" id="1_6x7id"]
 [ext_resource type="Script" path="res://Components/AddWork/add_work.gd" id="1_turug"]
 [ext_resource type="PackedScene" uid="uid://codwbw3x5wsxb" path="res://Components/LabelManagement/manage_labels.tscn" id="2_8lnsr"]
 [ext_resource type="Script" path="res://Components/AddWork/CameraController.gd" id="2_60y3i"]
 
-[sub_resource type="Gradient" id="Gradient_yqo32"]
-colors = PackedColorArray(0.725748, 0.304527, 0.0399123, 1, 0.998994, 0.607614, 0.549279, 1)
+[sub_resource type="Gradient" id="Gradient_8cuu2"]
+offsets = PackedFloat32Array(0.917197, 1)
+colors = PackedColorArray(0.752941, 0.752941, 0.752941, 0, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dgccv"]
-gradient = SubResource("Gradient_yqo32")
-fill_to = Vector2(1, 0.688073)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4roho"]
+gradient = SubResource("Gradient_8cuu2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="AddWork" type="Control" groups=["AddWork"]]
 layout_mode = 3
@@ -18,7 +21,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_6x7id")
 script = ExtResource("1_turug")
+
+[node name="BackgroundRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0745098, 0.0941176, 0.0941176, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -48,7 +61,7 @@ script = ExtResource("2_60y3i")
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-texture = SubResource("GradientTexture2D_dgccv")
+texture = SubResource("GradientTexture2D_4roho")
 expand_mode = 1
 stretch_mode = 5
 
@@ -79,6 +92,7 @@ wrap_mode = 1
 
 [node name="DateContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer"]
 layout_mode = 2
+theme_override_constants/separation = 5
 
 [node name="DateLabel" type="Label" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
 layout_mode = 2
@@ -86,20 +100,24 @@ text = "DateLabel"
 
 [node name="DayEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
 layout_mode = 2
+theme_override_constants/minimum_character_width = 2
 alignment = 1
 
 [node name="MonthEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
 layout_mode = 2
+theme_override_constants/minimum_character_width = 2
 alignment = 1
 
 [node name="YearEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
 layout_mode = 2
+theme_override_constants/minimum_character_width = 4
 alignment = 1
 
 [node name="LabelContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer"]
 layout_mode = 2
 
 [node name="AddLabelButton" type="Button" parent="MarginContainer/ScrollContainer/AddWorkContainer/LabelContainer" groups=["AddWork"]]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 text = "AddLabelLabel"
 
@@ -111,12 +129,14 @@ text = "LabelsLabel"
 layout_mode = 2
 
 [node name="AddEntryButton" type="Button" parent="MarginContainer/ScrollContainer/AddWorkContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "AddEntryLabel"
 
 [node name="ManageLabels" parent="." instance=ExtResource("2_8lnsr")]
 visible = false
 layout_mode = 1
+label_screen_type = "add"
 
 [connection signal="button_up" from="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer/GalleryButton" to="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer" method="_on_gallery_button_button_up"]
 [connection signal="button_up" from="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer/CameraButton" to="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer" method="_on_camera_button_button_up"]

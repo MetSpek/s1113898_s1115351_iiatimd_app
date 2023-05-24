@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dt6cvnsp14qp5"]
 
-[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/StandardTheme.tres" id="1_sg663"]
+[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/Themes/StandardTheme.tres" id="1_jwmw7"]
 [ext_resource type="PackedScene" uid="uid://codwbw3x5wsxb" path="res://Components/LabelManagement/manage_labels.tscn" id="2_ahxb0"]
 [ext_resource type="Script" path="res://Components/Settings/settings.gd" id="2_tyh1d"]
 
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_sg663")
+theme = ExtResource("1_jwmw7")
 script = ExtResource("2_tyh1d")
 
 [node name="BackGroundRect" type="ColorRect" parent="."]
