@@ -12,13 +12,16 @@ var current_language = "en"
 var labels = []
 var diary_entries = []
 
+
 func _ready():
 	loadData()
+	TranslationServer.set_locale(current_language)
 
 func saveData():
 	var save ={
 		"entries" : diary_entries,
-		"labels" : labels
+		"labels" : labels,
+		"settings" : [current_theme, current_diary_view, current_language]
 	}
 	var json_file = JSON.stringify(save)
 	var file = FileAccess.open(DATA_FILE, FileAccess.WRITE)
@@ -34,10 +37,14 @@ func loadData():
 	var json_file = JSON.parse_string(data)
 	labels = json_file["labels"]
 	diary_entries = json_file["entries"]
+	current_theme = json_file["settings"][0]
+	current_diary_view = json_file["settings"][1]
+	current_language = json_file["settings"][2]
 
 func changeTheme(theme):
 	current_theme = theme
 	print("Change theme to " + current_theme + " mode...")
+	saveData()
 
 func addCustomLabel(label):
 	labels.append(label)
@@ -47,4 +54,4 @@ func addCustomLabel(label):
 func removeCustomLabel(label):
 	if labels.find(label):
 		labels.remove_at(labels.find(label))
-		#Save the data
+		saveData()
