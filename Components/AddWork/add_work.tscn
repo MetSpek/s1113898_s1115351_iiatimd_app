@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://i6ufkm5xqqww"]
+[gd_scene load_steps=8 format=3 uid="uid://i6ufkm5xqqww"]
 
 [ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/Themes/StandardTheme.tres" id="1_6x7id"]
 [ext_resource type="Script" path="res://Components/AddWork/add_work.gd" id="1_turug"]
 [ext_resource type="PackedScene" uid="uid://codwbw3x5wsxb" path="res://Components/LabelManagement/manage_labels.tscn" id="2_8lnsr"]
 [ext_resource type="Script" path="res://Components/AddWork/CameraController.gd" id="2_60y3i"]
+[ext_resource type="PackedScene" uid="uid://djevfhk7g786q" path="res://Components/Menu/menu.tscn" id="5_cvn3u"]
 
 [sub_resource type="Gradient" id="Gradient_8cuu2"]
 offsets = PackedFloat32Array(0.917197, 1)
@@ -33,15 +34,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0745098, 0.0941176, 0.0941176, 1)
 
+[node name="Menu" parent="." instance=ExtResource("5_cvn3u")]
+layout_mode = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 60.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_bottom = 5
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
 layout_mode = 2
