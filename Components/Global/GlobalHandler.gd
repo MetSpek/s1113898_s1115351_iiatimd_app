@@ -1,23 +1,57 @@
 extends Node
 
+var DATA_FILE = OS.get_executable_path().get_base_dir() + "/save"
+
 var current_theme = "dark"
-var dark_mode = preload("res://Resources/StandardTheme.tres")
+var dark_mode = preload("res://Resources/Themes/StandardTheme.tres")
 
 var current_diary_view = "normal"
 
 var current_language = "en"
 
-var custom_labels = []
+var labels = []
+var diary_entries = []
+
+
+func _ready():
+	loadData()
+	TranslationServer.set_locale(current_language)
+
+func saveData():
+	var save ={
+		"entries" : diary_entries,
+		"labels" : labels,
+		"settings" : [current_theme, current_diary_view, current_language]
+	}
+	var json_file = JSON.stringify(save)
+	var file = FileAccess.open(DATA_FILE, FileAccess.WRITE)
+	file.store_line(json_file)
+	file.close()
+
+func loadData():
+	if not FileAccess.file_exists(DATA_FILE):
+		return
+	
+	var file = FileAccess.open(DATA_FILE, FileAccess.READ)
+	var data = file.get_line()
+	var json_file = JSON.parse_string(data)
+	labels = json_file["labels"]
+	diary_entries = json_file["entries"]
+	current_theme = json_file["settings"][0]
+	current_diary_view = json_file["settings"][1]
+	current_language = json_file["settings"][2]
 
 func changeTheme(theme):
 	current_theme = theme
 	print("Change theme to " + current_theme + " mode...")
+	saveData()
 
 func addCustomLabel(label):
-	custom_labels.append(label)
-	#Save the data
+	labels.append(label)
+	labels.sort()
+	saveData()
 
 func removeCustomLabel(label):
-	if custom_labels.find(label):
-		custom_labels.remove_at(custom_labels.find(label))
-		#Save the data
+	if labels.find(label):
+		labels.remove_at(labels.find(label))
+		saveData()

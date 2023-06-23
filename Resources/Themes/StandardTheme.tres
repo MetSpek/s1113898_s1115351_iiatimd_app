@@ -1,0 +1,68 @@
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://du2pqa4sphe8i"]
+
+[ext_resource type="Texture2D" uid="uid://bv8q0ug4i8jyo" path="res://Resources/Themes/Images/CheckboxUnchecked.png" id="1_023wd"]
+[ext_resource type="FontFile" uid="uid://bxev5swttkepb" path="res://Resources/Fonts/Nunito-Medium.ttf" id="2_sib8f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqqho"]
+content_margin_left = 5.0
+bg_color = Color(0.294118, 0.462745, 0.270588, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0fpw"]
+content_margin_left = 5.0
+bg_color = Color(0, 0.239216, 0.141176, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3n2jt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hjuwp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vyx4r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ccg3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dsnm2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jacgx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2t3j"]
+content_margin_left = 8.0
+bg_color = Color(0.960784, 0.94902, 0.894118, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4epeb"]
+content_margin_left = 8.0
+bg_color = Color(0.960784, 0.94902, 0.894118, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+default_font = ExtResource("2_sib8f")
+default_font_size = 24
+Button/styles/hover = SubResource("StyleBoxFlat_jqqho")
+Button/styles/normal = SubResource("StyleBoxFlat_w0fpw")
+CheckBox/constants/h_separation = 8
+CheckBox/icons/unchecked = ExtResource("1_023wd")
+CheckBox/styles/disabled = SubResource("StyleBoxTexture_3n2jt")
+CheckBox/styles/focus = SubResource("StyleBoxTexture_hjuwp")
+CheckBox/styles/hover = SubResource("StyleBoxTexture_vyx4r")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxTexture_4ccg3")
+CheckBox/styles/normal = SubResource("StyleBoxTexture_dsnm2")
+CheckBox/styles/pressed = SubResource("StyleBoxTexture_jacgx")
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+LineEdit/styles/normal = SubResource("StyleBoxFlat_m2t3j")
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+TextEdit/styles/normal = SubResource("StyleBoxFlat_4epeb")
