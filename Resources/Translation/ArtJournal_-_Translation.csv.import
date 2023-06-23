@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://hdq32hy6fn0r"
+
+[deps]
+
+files=["res://Resources/Translation/ArtJournal_-_Translation.en_US.translation", "res://Resources/Translation/ArtJournal_-_Translation.nl_NL.translation"]
+
+source_file="res://Resources/Translation/ArtJournal_-_Translation.csv"
+dest_files=["res://Resources/Translation/ArtJournal_-_Translation.en_US.translation", "res://Resources/Translation/ArtJournal_-_Translation.nl_NL.translation"]
+
+[params]
+
+compress=true
+delimiter=0
