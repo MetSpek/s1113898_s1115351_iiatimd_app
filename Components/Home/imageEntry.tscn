@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://de7djniah6uok"]
+
+[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/Themes/StandardTheme.tres" id="1_1lqd8"]
+[ext_resource type="Texture2D" uid="uid://cl1kpisklr82c" path="res://Components/Home/bloody_hell.png" id="2_2tq0f"]
+[ext_resource type="Script" path="res://Components/Home/imageEntry.gd" id="2_368rd"]
+[ext_resource type="Texture2D" uid="uid://bkf7ckpd00s2d" path="res://Resources/Textures/border background.png" id="2_al10c"]
+[ext_resource type="FontFile" uid="uid://dutq0rjlwwa8j" path="res://Resources/Fonts/Nunito-Bold.ttf" id="5_dgyt4"]
+
+[sub_resource type="FontVariation" id="FontVariation_w4kns"]
+base_font = ExtResource("5_dgyt4")
+
+[node name="imageEntry" type="Control"]
+custom_minimum_size = Vector2(300, 315)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 315.0
+grow_horizontal = 2
+theme = ExtResource("1_1lqd8")
+script = ExtResource("2_368rd")
+
+[node name="CardBackground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_al10c")
+
+[node name="Card" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Image" type="TextureRect" parent="Card"]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_2tq0f")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Information" type="VBoxContainer" parent="Card"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="Card/Information"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_w4kns")
+theme_override_font_sizes/font_size = 25
+text = "Title"
+horizontal_alignment = 1
+
+[node name="DateContainer" type="MarginContainer" parent="Card/Information"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+
+[node name="Date" type="Label" parent="Card/Information/DateContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Date"
+horizontal_alignment = 2
