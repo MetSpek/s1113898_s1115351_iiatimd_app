@@ -1,0 +1,143 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwbjc1v6os3gf"]
+
+[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/Themes/StandardTheme.tres" id="1_fftbp"]
+[ext_resource type="Texture2D" uid="uid://c1rfancnj1htk" path="res://Resources/Textures/basic background.png" id="1_gwu1m"]
+[ext_resource type="FontFile" uid="uid://dutq0rjlwwa8j" path="res://Resources/Fonts/Nunito-Bold.ttf" id="2_3g1op"]
+[ext_resource type="Texture2D" uid="uid://cl1kpisklr82c" path="res://Components/Home/bloody_hell.png" id="3_udf3a"]
+
+[sub_resource type="FontVariation" id="FontVariation_x23av"]
+base_font = ExtResource("2_3g1op")
+
+[node name="art_detail" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fftbp")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(360, 740)
+layout_mode = 2
+offset_right = 300.0
+
+[node name="ContentContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="ImageSection" type="Control" parent="ScrollContainer/ContentContainer"]
+custom_minimum_size = Vector2(300, 315)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/ContentContainer/ImageSection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gwu1m")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="ImageContainer" type="VBoxContainer" parent="ScrollContainer/ContentContainer/ImageSection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Image" type="TextureRect" parent="ScrollContainer/ContentContainer/ImageSection/ImageContainer"]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_udf3a")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Information" type="VBoxContainer" parent="ScrollContainer/ContentContainer/ImageSection/ImageContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="ScrollContainer/ContentContainer/ImageSection/ImageContainer/Information"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_x23av")
+theme_override_font_sizes/font_size = 25
+text = "Title"
+horizontal_alignment = 1
+
+[node name="DateContainer" type="MarginContainer" parent="ScrollContainer/ContentContainer/ImageSection/ImageContainer/Information"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+
+[node name="Date" type="Label" parent="ScrollContainer/ContentContainer/ImageSection/ImageContainer/Information/DateContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Date"
+horizontal_alignment = 2
+
+[node name="LabelContainer" type="GridContainer" parent="ScrollContainer/ContentContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="Labels" type="Label" parent="ScrollContainer/ContentContainer/LabelContainer"]
+layout_mode = 2
+text = "labels"
+
+[node name="Labels2" type="Label" parent="ScrollContainer/ContentContainer/LabelContainer"]
+layout_mode = 2
+text = "labels"
+
+[node name="Labels3" type="Label" parent="ScrollContainer/ContentContainer/LabelContainer"]
+layout_mode = 2
+text = "labels"
+
+[node name="Labels4" type="Label" parent="ScrollContainer/ContentContainer/LabelContainer"]
+layout_mode = 2
+text = "labels"
+
+[node name="DescriptionSection" type="Control" parent="ScrollContainer/ContentContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/ContentContainer/DescriptionSection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gwu1m")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="DescriptionContainer" type="Control" parent="ScrollContainer/ContentContainer/DescriptionSection"]
+custom_minimum_size = Vector2(300, 300)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Description" type="Label" parent="ScrollContainer/ContentContainer/DescriptionSection/DescriptionContainer"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Description"
+
+[node name="Button" type="Button" parent="ScrollContainer/ContentContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Delete Entry"
