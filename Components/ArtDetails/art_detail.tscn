@@ -1,12 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwbjc1v6os3gf"]
+[gd_scene load_steps=12 format=3 uid="uid://bwbjc1v6os3gf"]
 
 [ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/Themes/StandardTheme.tres" id="1_fftbp"]
 [ext_resource type="Texture2D" uid="uid://c1rfancnj1htk" path="res://Resources/Textures/basic background.png" id="1_gwu1m"]
 [ext_resource type="FontFile" uid="uid://dutq0rjlwwa8j" path="res://Resources/Fonts/Nunito-Bold.ttf" id="2_3g1op"]
+[ext_resource type="PackedScene" uid="uid://djevfhk7g786q" path="res://Components/Menu/menu.tscn" id="2_vf5x0"]
+[ext_resource type="Script" path="res://Components/ArtDetails/art_detail.gd" id="2_vxth3"]
 [ext_resource type="Texture2D" uid="uid://cl1kpisklr82c" path="res://Components/Home/bloody_hell.png" id="3_udf3a"]
 
 [sub_resource type="FontVariation" id="FontVariation_x23av"]
 base_font = ExtResource("2_3g1op")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oi8sd"]
+bg_color = Color(0.690196, 0.196078, 0.196078, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvlh5"]
+bg_color = Color(0.901961, 0.337255, 0.321569, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x62sv"]
+bg_color = Color(0.690196, 0.196078, 0.196078, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tksbl"]
+bg_color = Color(0.901961, 0.337255, 0.321569, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="art_detail" type="Control"]
 layout_mode = 3
@@ -16,16 +46,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_fftbp")
+script = ExtResource("2_vxth3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(360, 740)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fftbp")
+color = Color(0.0745098, 0.0941176, 0.0941176, 1)
+
+[node name="Menu" parent="." instance=ExtResource("2_vf5x0")]
+layout_mode = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-custom_minimum_size = Vector2(360, 740)
 layout_mode = 2
-offset_right = 300.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -297.0
+offset_right = 180.0
+offset_bottom = 310.0
 
 [node name="ContentContainer" type="VBoxContainer" parent="ScrollContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_constants/separation = 10
 
 [node name="ImageSection" type="Control" parent="ScrollContainer/ContentContainer"]
 custom_minimum_size = Vector2(300, 315)
@@ -87,25 +139,9 @@ theme_override_font_sizes/font_size = 18
 text = "Date"
 horizontal_alignment = 2
 
-[node name="LabelContainer" type="GridContainer" parent="ScrollContainer/ContentContainer"]
+[node name="LabelContainer" type="Label" parent="ScrollContainer/ContentContainer"]
 layout_mode = 2
-columns = 4
-
-[node name="Labels" type="Label" parent="ScrollContainer/ContentContainer/LabelContainer"]
-layout_mode = 2
-text = "labels"
-
-[node name="Labels2" type="Label" parent="ScrollContainer/ContentContainer/LabelContainer"]
-layout_mode = 2
-text = "labels"
-
-[node name="Labels3" type="Label" parent="ScrollContainer/ContentContainer/LabelContainer"]
-layout_mode = 2
-text = "labels"
-
-[node name="Labels4" type="Label" parent="ScrollContainer/ContentContainer/LabelContainer"]
-layout_mode = 2
-text = "labels"
+theme_override_colors/font_color = Color(0.533333, 0.694118, 0.458824, 1)
 
 [node name="DescriptionSection" type="Control" parent="ScrollContainer/ContentContainer"]
 custom_minimum_size = Vector2(300, 300)
@@ -124,20 +160,119 @@ patch_margin_top = 100
 patch_margin_right = 100
 patch_margin_bottom = 100
 
-[node name="DescriptionContainer" type="Control" parent="ScrollContainer/ContentContainer/DescriptionSection"]
-custom_minimum_size = Vector2(300, 300)
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Description" type="Label" parent="ScrollContainer/ContentContainer/DescriptionSection/DescriptionContainer"]
+[node name="DescriptionContainer" type="MarginContainer" parent="ScrollContainer/ContentContainer/DescriptionSection"]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Description"
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
 
-[node name="Button" type="Button" parent="ScrollContainer/ContentContainer"]
+[node name="Description" type="Label" parent="ScrollContainer/ContentContainer/DescriptionSection/DescriptionContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 20
+text = "Description of the artwork above"
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ContentContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Button" type="Button" parent="ScrollContainer/ContentContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_oi8sd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vvlh5")
 text = "Delete Entry"
+
+[node name="Popup" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Popup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.513726)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Popup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -100.0
+offset_right = 134.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gwu1m")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="Label" type="Label" parent="Popup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -66.0
+offset_right = 126.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Are you sure you want to delete this entry?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Delete" type="Button" parent="Popup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = 52.0
+offset_right = 126.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_x62sv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tksbl")
+text = "Delete"
+
+[node name="Cancel" type="Button" parent="Popup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = 52.0
+offset_right = -36.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Cancel"
+
+[connection signal="button_up" from="ScrollContainer/ContentContainer/MarginContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Popup/Delete" to="." method="_on_delete_button_up"]
+[connection signal="button_up" from="Popup/Cancel" to="." method="_on_cancel_button_up"]
