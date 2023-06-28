@@ -237,7 +237,7 @@ offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Are you sure you want to delete this entry?"
+text = "AlertQuestion"
 horizontal_alignment = 1
 autowrap_mode = 2
 
