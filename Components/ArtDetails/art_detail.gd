@@ -16,6 +16,10 @@ var labelText = ''
 func _ready():
 	theme = load(GlobalHandler.current_theme)
 	
+	var img = Image.load_from_file(entry.img)
+	if img:
+		var texture = ImageTexture.create_from_image(img)
+		imageFrame.texture = texture
 	entry = GlobalHandler.selected_entry
 	titleLabel.text = entry.title
 	dateLabel.text = entry.date

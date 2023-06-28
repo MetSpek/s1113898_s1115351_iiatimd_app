@@ -3,6 +3,13 @@ extends Control
 @onready var background = $Background
 @onready var banner_top = $Top/Banner
 @onready var banner_bottom = $Bot/Banner
+@export var currentPage = ''
+
+@onready var settings_button = $Top/Banner/SettingsButton
+@onready var add_button = $Bot/Banner/AddButton
+@onready var home_button = $Bot/Banner/HomeButton
+@onready var art_prompt_button = $Bot/Banner/ArtPromptButton
+var selectedColour = Color('#fab363')
 
 var settings = "res://Components/Settings/settings.tscn"
 var add_work = "res://Components/AddWork/add_work.tscn"
@@ -11,6 +18,16 @@ var art_prompt_generator = "res://Components/ArtPromptGenerator/art_prompt_gener
 
 func _ready():
 	changeTheme()
+	#Set correct Icon to orange
+	match currentPage:
+		'settings':
+			settings_button.self_modulate = selectedColour
+		'add_work':
+			add_button.self_modulate = selectedColour
+		'home':
+			home_button.self_modulate = selectedColour
+		'art_prompt_generator':
+			art_prompt_button.self_modulate = selectedColour
 
 func changeScene(scene):
 	if not get_tree().get_current_scene().name == load(scene).instantiate().name:

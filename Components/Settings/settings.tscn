@@ -26,6 +26,7 @@ color = Color(0.0745098, 0.0941176, 0.0941176, 1)
 
 [node name="Menu" parent="." instance=ExtResource("4_jeuvn")]
 layout_mode = 1
+currentPage = "settings"
 
 [node name="SettingsContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

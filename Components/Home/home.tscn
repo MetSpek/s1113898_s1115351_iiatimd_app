@@ -16,6 +16,7 @@ script = ExtResource("1_jf7qd")
 
 [node name="Menu" parent="." instance=ExtResource("2_ev83c")]
 layout_mode = 1
+currentPage = "home"
 
 [node name="ContentContainer" type="MarginContainer" parent="."]
 layout_mode = 1
