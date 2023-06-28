@@ -109,11 +109,13 @@ text = "DateLabel"
 layout_mode = 2
 theme_override_constants/minimum_character_width = 2
 alignment = 1
+max_length = 2
 
 [node name="MonthEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
 layout_mode = 2
 theme_override_constants/minimum_character_width = 2
 alignment = 1
+max_length = 2
 
 [node name="YearEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
 layout_mode = 2

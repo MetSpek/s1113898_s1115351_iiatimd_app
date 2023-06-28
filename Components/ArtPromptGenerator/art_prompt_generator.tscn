@@ -34,20 +34,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -131.0
-offset_top = -115.5
-offset_right = 131.0
-offset_bottom = 115.5
+offset_left = -158.5
+offset_top = -159.0
+offset_right = 158.5
+offset_bottom = 268.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 69
+theme_override_constants/separation = 50
 alignment = 1
 
 [node name="PromptNew" type="Label" parent="GeneratorContainer"]
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "PromptNew"
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="PromptOldBox" type="VBoxContainer" parent="GeneratorContainer"]
 layout_mode = 2
@@ -59,6 +61,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.811765)
 theme_override_font_sizes/font_size = 25
 text = "PromptOld1"
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="PromptOld2" type="Label" parent="GeneratorContainer/PromptOldBox"]
 layout_mode = 2
@@ -66,6 +69,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.435294)
 theme_override_font_sizes/font_size = 25
 text = "PromptOld2"
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="PromptOld3" type="Label" parent="GeneratorContainer/PromptOldBox"]
 layout_mode = 2
@@ -73,10 +77,12 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.2)
 theme_override_font_sizes/font_size = 25
 text = "PromptOld3"
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="Button" type="Button" parent="GeneratorContainer"]
-custom_minimum_size = Vector2(0, 55)
+custom_minimum_size = Vector2(200, 55)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 25
 text = "New Prompt"
 
