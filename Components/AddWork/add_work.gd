@@ -26,6 +26,7 @@ var diary_entry = {
 "date": "",
 "labels": []}
 var entry_img
+var labels = []
 
 func _ready():
 	theme = load(GlobalHandler.current_theme)
@@ -64,6 +65,7 @@ func _on_year_edit_text_changed(new_text):
 		year_edit.text = str(time[2])
 
 func closeLabelManagement(label_list):
+	labels = label_list
 	manageLabelList(label_list)
 	manage_labels.visible = false
 	scroll_container.visible = true
@@ -103,7 +105,9 @@ func _on_add_entry_button_button_up():
 	diary_entry['id'] = int(year_edit.text + month_edit.text + day_edit.text)
 	diary_entry["title"] = title_edit.text
 	diary_entry["desc"] = description_edit.text
-	
+	if labels.size() > 0:
+		for label in labels:
+			diary_entry["labels"].append(label)
 	diary_entry["date"] = formatDate()
 	
 	var img_string = "user://" + diary_entry["title"] + diary_entry["date"] + ".png"

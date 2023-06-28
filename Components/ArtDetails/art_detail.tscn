@@ -81,6 +81,7 @@ theme_override_constants/separation = 10
 [node name="ImageSection" type="Control" parent="ScrollContainer/ContentContainer"]
 custom_minimum_size = Vector2(300, 315)
 layout_mode = 2
+mouse_filter = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/ContentContainer/ImageSection"]
 layout_mode = 1
@@ -144,6 +145,7 @@ theme_override_colors/font_color = Color(0.25098, 0.356863, 0.658824, 1)
 [node name="DescriptionSection" type="Control" parent="ScrollContainer/ContentContainer"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
+mouse_filter = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="ScrollContainer/ContentContainer/DescriptionSection"]
 layout_mode = 1
