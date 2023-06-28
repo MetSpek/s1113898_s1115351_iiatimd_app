@@ -16,6 +16,7 @@ var label_item = preload("res://Components/LabelManagement/manage_label_item.tsc
 @onready var title_edit = $MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/TitleEdit
 @onready var description_edit = $MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DescriptionEdit
 
+var home = "res://Components/Home/home.tscn"
 
 var diary_entry = {
 "id": 0,
@@ -87,13 +88,14 @@ func _on_add_entry_button_button_up():
 	diary_entry["desc"] = description_edit.text
 	diary_entry["date"] = day_edit.text + "-" + month_edit.text + "-" + year_edit.text
 	
-	var img_string = OS.get_executable_path().get_base_dir() + "/save/images/" + diary_entry["title"] + diary_entry["date"] + ".png"
+	var img_string = "user://" + diary_entry["title"] + diary_entry["date"] + ".png"
 	diary_entry["img"] = img_string
 	if entry_img:
 		entry_img.save_png(diary_entry["img"])
 	
 	GlobalHandler.diary_entries.append(diary_entry)
 	GlobalHandler.saveData()
+	get_tree().change_scene_to_file(home)
 
 func setEntryImg(image):
 	entry_img = image
