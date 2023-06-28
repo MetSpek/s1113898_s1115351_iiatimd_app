@@ -36,6 +36,7 @@ color = Color(0.0745098, 0.0941176, 0.0941176, 1)
 
 [node name="Menu" parent="." instance=ExtResource("5_cvn3u")]
 layout_mode = 1
+currentPage = "add_work"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -108,11 +109,13 @@ text = "DateLabel"
 layout_mode = 2
 theme_override_constants/minimum_character_width = 2
 alignment = 1
+max_length = 2
 
 [node name="MonthEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
 layout_mode = 2
 theme_override_constants/minimum_character_width = 2
 alignment = 1
+max_length = 2
 
 [node name="YearEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
 layout_mode = 2

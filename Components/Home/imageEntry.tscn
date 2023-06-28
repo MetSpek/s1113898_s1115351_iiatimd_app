@@ -19,6 +19,7 @@ offset_left = -150.0
 offset_right = 150.0
 offset_bottom = 315.0
 grow_horizontal = 2
+mouse_filter = 1
 theme = ExtResource("1_1lqd8")
 script = ExtResource("2_368rd")
 
@@ -66,8 +67,8 @@ horizontal_alignment = 1
 
 [node name="DateContainer" type="MarginContainer" parent="Card/Information"]
 layout_mode = 2
-size_flags_horizontal = 8
-theme_override_constants/margin_left = 0
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 7
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 8
 
@@ -79,5 +80,17 @@ theme_override_font_sizes/font_size = 18
 text = "Date"
 horizontal_alignment = 2
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[node name="MarginContainer" type="MarginContainer" parent="Card/Information"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = -35
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 4
+
+[node name="Button" type="Button" parent="Card/Information/MarginContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "> "
+
+[connection signal="button_up" from="Card/Information/MarginContainer/Button" to="." method="_on_button_button_up"]

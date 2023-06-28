@@ -17,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+mouse_filter = 1
 theme = ExtResource("1_ps183")
 script = ExtResource("2_vc5r1")
 
@@ -60,18 +61,22 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Title"
 scroll_active = false
 
-[node name="DateContainer" type="MarginContainer" parent="Card/Information"]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_constants/margin_top = 19
-theme_override_constants/margin_right = -5
-
-[node name="Date" type="Label" parent="Card/Information/DateContainer"]
+[node name="Date" type="Label" parent="Card/Information"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Date"
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[node name="MarginContainer" type="MarginContainer" parent="Card/Information"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = -21
+theme_override_constants/margin_right = -16
+
+[node name="Button" type="Button" parent="Card/Information/MarginContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "> "
+
+[connection signal="button_up" from="Card/Information/MarginContainer/Button" to="." method="_on_button_button_up"]
