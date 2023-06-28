@@ -2,6 +2,7 @@ extends Control
 
 @onready var titleLabel = $Card/Information/Title
 @onready var dateLabel = $Card/Information/DateContainer/Date
+@onready var image = $Card/Image
 
 var art_detail = "res://Components/ArtDetails/art_detail.tscn"
 
@@ -15,6 +16,11 @@ var canClick = false
 func _ready():
 	titleLabel.text = title
 	dateLabel.text = date
+	
+	var img = Image.load_from_file(dict.img)
+	if img:
+		var texture = ImageTexture.create_from_image(img)
+		image.texture = texture
 
 # Link to the detailpage of specific art
 func _input(event):
