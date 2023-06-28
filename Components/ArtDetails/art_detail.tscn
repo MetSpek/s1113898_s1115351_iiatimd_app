@@ -187,6 +187,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_vvlh5")
 text = "Delete Entry"
 
 [node name="Popup" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
