@@ -14,6 +14,8 @@ var labelText = ''
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	theme = load(GlobalHandler.current_theme)
+	
 	entry = GlobalHandler.selected_entry
 	titleLabel.text = entry.title
 	dateLabel.text = entry.date

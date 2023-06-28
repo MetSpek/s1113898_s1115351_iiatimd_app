@@ -14,10 +14,12 @@ var languages = {"en" : 0,"nl" : 1}
 
 
 func _ready():
+	theme = load(GlobalHandler.current_theme)
+	
 	setSavedValues()
 
 func setSavedValues():
-	theme_button.selected = themes[GlobalHandler.current_theme]
+	theme_button.selected = themes[GlobalHandler.theme_name]
 	diary_button.selected = diaries[GlobalHandler.current_diary_view]
 	language_button.selected = languages[GlobalHandler.current_language]
 
@@ -54,10 +56,12 @@ func closeLabelManagement():
 	manage_labels.visible = false
 	settings_container.visible = true
 
-	#Checks what the status is of the Theme Button
+#Checks what the status is of the Theme Button
 func _on_theme_button_item_selected(index):
 	match index:
 		0:
 			GlobalHandler.changeTheme("dark")
 		1:
 			GlobalHandler.changeTheme("light")
+	theme = load(GlobalHandler.current_theme)
+	get_tree().call_group('Menu', 'changeTheme')

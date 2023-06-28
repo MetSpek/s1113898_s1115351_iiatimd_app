@@ -9,6 +9,8 @@ var randomNumber = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	theme = load(GlobalHandler.current_theme)
+	
 	prompt_old_3.text = ''
 	prompt_old_2.text = ''
 	prompt_old_1.text = ''

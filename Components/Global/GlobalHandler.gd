@@ -2,8 +2,8 @@ extends Node
 
 var DATA_FILE = "user://ArtJournal.save"
 
-var current_theme = "dark"
-var dark_mode = preload("res://Resources/Themes/StandardTheme.tres")
+var current_theme = "res://Resources/Themes/StandardTheme.tres"
+var theme_name = "dark"
 
 var current_diary_view = "normal"
 
@@ -22,7 +22,7 @@ func saveData():
 	var save ={
 		"entries" : diary_entries,
 		"labels" : labels,
-		"settings" : [current_theme, current_diary_view, current_language]
+		"settings" : [theme_name, current_diary_view, current_language]
 	}
 	var json_file = JSON.stringify(save)
 	var file = FileAccess.open(DATA_FILE, FileAccess.WRITE)
@@ -38,12 +38,21 @@ func loadData():
 	var json_file = JSON.parse_string(data)
 	labels = json_file["labels"]
 	diary_entries = json_file["entries"]
-	current_theme = json_file["settings"][0]
+	theme_name = json_file["settings"][0]
+	changeTheme(theme_name)
 	current_diary_view = json_file["settings"][1]
 	current_language = json_file["settings"][2]
 
 func changeTheme(theme):
-	current_theme = theme
+
+	match theme:
+		'dark':
+			current_theme = "res://Resources/Themes/StandardTheme.tres"
+			theme_name = "dark"
+		'light':
+			current_theme = "res://Resources/Themes/LightTheme.tres"
+			theme_name = "light"
+		
 	print("Change theme to " + current_theme + " mode...")
 	saveData()
 

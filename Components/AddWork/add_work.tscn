@@ -76,10 +76,12 @@ layout_mode = 2
 alignment = 1
 
 [node name="GalleryButton" type="Button" parent="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "GalleryLabel"
 
 [node name="CameraButton" type="Button" parent="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "CameraLabel"
 
