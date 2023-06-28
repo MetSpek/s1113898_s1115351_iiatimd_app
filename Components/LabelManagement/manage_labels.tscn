@@ -44,8 +44,10 @@ theme_override_constants/separation = 0
 custom_minimum_size = Vector2(225, 35)
 layout_mode = 2
 placeholder_text = "AddPlaceHolder"
+max_length = 20
 
 [node name="AddLabelButton" type="Button" parent="ManageLabelsContainer/AddLabelContainer"]
+custom_minimum_size = Vector2(100, 35)
 layout_mode = 2
 text = "AddLabel"
 

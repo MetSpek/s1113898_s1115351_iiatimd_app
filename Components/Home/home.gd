@@ -10,6 +10,8 @@ var entryVersion
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	theme = load(GlobalHandler.current_theme)
+	
 	# checking which entryversion should be shown
 	if GlobalHandler.current_diary_view == 'normal':
 		entryVersion = imageEntry

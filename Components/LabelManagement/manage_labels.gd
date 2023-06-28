@@ -15,6 +15,8 @@ var label_item
 var add_labels = []
 
 func _ready():
+	theme = load(GlobalHandler.current_theme)
+	
 	#Disables the add button automatically
 	if add_label_text_edit.text == "":
 		add_label_button.disabled = true

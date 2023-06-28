@@ -28,6 +28,8 @@ var diary_entry = {
 var entry_img
 
 func _ready():
+	theme = load(GlobalHandler.current_theme)
+	
 	setCurrentTime()
 
 # Checks the current date/time from the system and sets the corrosponding line_edits to their value
