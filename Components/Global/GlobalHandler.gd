@@ -10,11 +10,12 @@ var current_diary_view = "normal"
 var current_language = "en"
 
 var labels = []
-var diary_entries = [{'img':'IMAGE TOEVOEGEN', 'title': 'Dark owl', 'desc': 'dark owl chilling on a branch.', 'date': '11-06-2023', 'labels': ['owl', 'animal']} , {'img':'IMAGE TOEVOEGEN', 'title': 'Filipé Frogé', 'desc': 'Filipé chilling with fireflies', 'date': '08-06-2023', 'labels': ['frog', 'animal']}]
-
+var diary_entries = [{'id': 20230611, 'img':'IMAGE TOEVOEGEN', 'title': 'Dark owl', 'desc': 'dark owl chilling on a branch.', 'date': '11-06-2023', 'labels': ['owl', 'animal']} , {'id': 20230608, 'img':'IMAGE TOEVOEGEN', 'title': 'Filipé Frogé', 'desc': 'Filipé chilling with fireflies', 'date': '08-06-2023', 'labels': ['frog', 'animal']}]
+var selected_entry = diary_entries[0]
 
 func _ready():
 	loadData()
+#	saveData()
 	TranslationServer.set_locale(current_language)
 
 func saveData():

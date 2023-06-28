@@ -17,7 +17,9 @@ var label_item = preload("res://Components/LabelManagement/manage_label_item.tsc
 @onready var description_edit = $MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DescriptionEdit
 
 
-var diary_entry = {"img": "",
+var diary_entry = {
+"id": 0,
+"img": "",
 "title": "",
 "desc": "",
 "date": "",
@@ -80,7 +82,7 @@ func _on_add_label_button_pressed():
 	scroll_container.visible = false
 
 func _on_add_entry_button_button_up():
-	
+	diary_entry['id'] = int(year_edit.text + month_edit.text + day_edit.text)
 	diary_entry["title"] = title_edit.text
 	diary_entry["desc"] = description_edit.text
 	diary_entry["date"] = day_edit.text + "-" + month_edit.text + "-" + year_edit.text
