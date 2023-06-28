@@ -96,8 +96,7 @@ placeholder_text = "TitleLabel"
 [node name="DescriptionEdit" type="TextEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-placeholder_text = "DescriptionLabel"
-wrap_mode = 1
+placeholder_text = "Description"
 
 [node name="DateContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer"]
 layout_mode = 2
@@ -148,6 +147,40 @@ text = "AddEntryLabel"
 visible = false
 layout_mode = 1
 label_screen_type = "add"
+
+[node name="Adding" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Adding"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.239216, 0.141176, 1)
+
+[node name="Label" type="Label" parent="Adding/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "LoadingLabel"
+horizontal_alignment = 1
 
 [connection signal="button_up" from="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer/GalleryButton" to="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer" method="_on_gallery_button_button_up"]
 [connection signal="button_up" from="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer/CameraButton" to="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer" method="_on_camera_button_button_up"]

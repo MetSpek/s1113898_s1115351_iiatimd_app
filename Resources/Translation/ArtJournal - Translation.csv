@@ -30,6 +30,7 @@ Cancel,Cancel,Stop
 Delete,Delete,Verwijder
 AlertQuestion,Are you sure you want to delete this entry?,Weet je het zeker dat je deze entry wilt verwijderen?
 New Prompt,New prompt,Nieuwe prompt
+LoadingLabel,Saving entry...,Entry opslaan...
 ,,
 Adj_0,Big,Grote
 Adj_1,Small,Kleine

@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcpumr71b0ici"]
+[gd_scene load_steps=4 format=3 uid="uid://bcpumr71b0ici"]
 
-[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/Themes/StandardTheme.tres" id="1_ps183"]
 [ext_resource type="Script" path="res://Components/Home/imageEntry.gd" id="2_vc5r1"]
 [ext_resource type="Texture2D" uid="uid://c1rfancnj1htk" path="res://Resources/Textures/basic background.png" id="3_4a61g"]
 
@@ -19,7 +18,6 @@ grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 mouse_filter = 1
-theme = ExtResource("1_ps183")
 script = ExtResource("2_vc5r1")
 
 [node name="TextureRect" type="NinePatchRect" parent="."]
@@ -75,7 +73,7 @@ text = "Date"
 [node name="MarginContainer2" type="MarginContainer" parent="Card/Information"]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_constants/margin_top = -20
+theme_override_constants/margin_top = -19
 theme_override_constants/margin_right = -16
 
 [node name="Button" type="Button" parent="Card/Information/MarginContainer2"]

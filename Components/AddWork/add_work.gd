@@ -1,5 +1,6 @@
 extends Control
 
+@onready var adding = $Adding
 @onready var texture_rect = $MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/TextureRect
 
 @onready var day_edit = $MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/DayEdit
@@ -82,6 +83,7 @@ func manageLabelList(list):
 		item.label = label
 		labels_container.add_child(item)
 
+# Formats the data so that a 0 is added when a day/month is lower than 10
 func formatDate():
 	var date = ''
 	if day_edit.text.length() < 2:
@@ -102,6 +104,12 @@ func _on_add_label_button_pressed():
 	scroll_container.visible = false
 
 func _on_add_entry_button_button_up():
+	adding.visible = true
+	
+	# Wait .5 seconds
+	await get_tree().create_timer(.5).timeout
+	
+	# Set all the needed info in the diary entry and save it
 	diary_entry['id'] = int(year_edit.text + month_edit.text + day_edit.text)
 	diary_entry["title"] = title_edit.text
 	diary_entry["desc"] = description_edit.text
