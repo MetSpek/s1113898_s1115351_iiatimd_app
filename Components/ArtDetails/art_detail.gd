@@ -19,14 +19,16 @@ func _ready():
 	dateLabel.text = entry.date
 	descLabel.text = entry.desc
 
+	# Loading all labels with '#' in front of each label
 	for label in entry.labels:
 		labelText = labelText + '#' + label + '  '
 	label_container.text = labelText
 
+# Showing popup for deletion of entry
 func _on_button_button_up():
 	popup.show()
 
-
+# Checking if entry exists, deletes afterwards and leads you back to Home
 func _on_delete_button_up():
 	for savedEntry in GlobalHandler.diary_entries:
 		if savedEntry.id == entry.id:
@@ -35,6 +37,6 @@ func _on_delete_button_up():
 	GlobalHandler.saveData()
 	get_tree().change_scene_to_file(home)
 
-
+# Hiding popup again
 func _on_cancel_button_up():
 	popup.hide()

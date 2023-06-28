@@ -13,13 +13,8 @@ func _ready():
 	prompt_old_2.text = ''
 	prompt_old_1.text = ''
 	prompt_new.text = ''
-	
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+# Create new art prompt from csv file
 func generateNewPrompt():
 	var randomAdj = randomNumber.randi_range(0, 9)
 	var randomNoun = randomNumber.randi_range(0, 9)
@@ -30,7 +25,7 @@ func generateNewPrompt():
 	var newPrompt = tr(randomAdj) + ' ' + tr(randomNoun)
 	return newPrompt
 
-# Reacts to clicking the button.
+# Adds new prompt, moves all other prompts down
 func _on_button_button_up():
 	prompt_old_3.text = prompt_old_2.text
 	prompt_old_2.text = prompt_old_1.text

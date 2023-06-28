@@ -10,12 +10,14 @@ var entryVersion
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# checking which entryversion should be shown
 	if GlobalHandler.current_diary_view == 'normal':
 		entryVersion = imageEntry
 		
 	else:
 		entryVersion = listEntry
 		
+	# for each entry, make a card in home
 	for entry in GlobalHandler.diary_entries:
 		var card = entryVersion.instantiate()
 		card.dict = entry
@@ -23,12 +25,8 @@ func _ready():
 		card.date = entry.date
 		
 		card_container.add_child(card)
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
-
+# searchbar on change update which cards are shown
 func _on_line_edit_text_changed(new_text):
 	if line_edit.text == "":
 		for entry in card_container.get_children():
@@ -41,23 +39,26 @@ func _on_line_edit_text_changed(new_text):
 				entry.visible = false
 				break
 
-func sort_recent_ascending(a, b):
+# descending sort
+func sort_descending(a, b):
 	if a.id > b.id:
 		return true
 	return false
 
-func sort_oldest_ascending(a, b):
+# ascending sort
+func sort_ascending(a, b):
 	if a.id < b.id:
 		return true
 	return false
 
+# filter on date (descending and ascending)
 func _on_option_button_item_selected(index):
 	if GlobalHandler.diary_entries.size() > 0:
 		match index:
 			0:
-				GlobalHandler.diary_entries.sort_custom(sort_recent_ascending)
+				GlobalHandler.diary_entries.sort_custom(sort_descending)
 			1:
-				GlobalHandler.diary_entries.sort_custom(sort_oldest_ascending)
+				GlobalHandler.diary_entries.sort_custom(sort_ascending)
 				
 		for entry in card_container.get_children():
 			card_container.move_child(entry, GlobalHandler.diary_entries.find(entry.dict))
