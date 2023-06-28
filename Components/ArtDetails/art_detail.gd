@@ -15,15 +15,16 @@ var labelText = ''
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	theme = load(GlobalHandler.current_theme)
+
+	entry = GlobalHandler.selected_entry
+	titleLabel.text = entry.title
+	dateLabel.text = entry.date
+	descLabel.text = entry.desc
 	
 	var img = Image.load_from_file(entry.img)
 	if img:
 		var texture = ImageTexture.create_from_image(img)
 		imageFrame.texture = texture
-	entry = GlobalHandler.selected_entry
-	titleLabel.text = entry.title
-	dateLabel.text = entry.date
-	descLabel.text = entry.desc
 
 	# Loading all labels with '#' in front of each label
 	for label in entry.labels:
