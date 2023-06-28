@@ -1,6 +1,6 @@
 extends Node
 
-var DATA_FILE = OS.get_executable_path().get_base_dir() + "/save"
+var DATA_FILE = "user://ArtJournal.save"
 
 var current_theme = "dark"
 var dark_mode = preload("res://Resources/Themes/StandardTheme.tres")
