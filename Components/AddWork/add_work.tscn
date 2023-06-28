@@ -36,6 +36,7 @@ color = Color(0.0745098, 0.0941176, 0.0941176, 1)
 
 [node name="Menu" parent="." instance=ExtResource("5_cvn3u")]
 layout_mode = 1
+currentPage = "add_work"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

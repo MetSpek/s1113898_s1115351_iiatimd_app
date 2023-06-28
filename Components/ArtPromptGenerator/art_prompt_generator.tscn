@@ -25,6 +25,7 @@ color = Color(0.0745098, 0.0941176, 0.0941176, 1)
 
 [node name="Menu" parent="." instance=ExtResource("3_ybkpr")]
 layout_mode = 1
+currentPage = "art_prompt_generator"
 
 [node name="GeneratorContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

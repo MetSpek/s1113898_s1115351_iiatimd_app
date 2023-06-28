@@ -25,6 +25,7 @@ color = Color(0.0745098, 0.0941176, 0.0941176, 1)
 
 [node name="Menu" parent="." instance=ExtResource("2_ev83c")]
 layout_mode = 1
+currentPage = "home"
 
 [node name="ContentContainer" type="MarginContainer" parent="."]
 layout_mode = 1
