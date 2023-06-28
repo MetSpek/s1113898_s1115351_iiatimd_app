@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcpumr71b0ici"]
+
+[ext_resource type="Script" path="res://Components/Home/imageEntry.gd" id="2_vc5r1"]
+[ext_resource type="Texture2D" uid="uid://c1rfancnj1htk" path="res://Resources/Textures/basic background.png" id="3_4a61g"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_y7qlb"]
+
+[node name="listEntry" type="Control"]
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -60.0
+offset_bottom = -620.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 1
+script = ExtResource("2_vc5r1")
+
+[node name="TextureRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 120.0
+texture = ExtResource("3_4a61g")
+patch_margin_left = 100
+patch_margin_top = 50
+patch_margin_right = 100
+patch_margin_bottom = 50
+
+[node name="Card" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 120.0
+grow_horizontal = 2
+
+[node name="Image" type="TextureRect" parent="Card"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = SubResource("ImageTexture_y7qlb")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Information" type="VBoxContainer" parent="Card"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Card/Information"]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Title"
+scroll_active = false
+
+[node name="DateContainer" type="MarginContainer" parent="Card/Information"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+
+[node name="Date" type="Label" parent="Card/Information/DateContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Date"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Card/Information"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_top = -19
+theme_override_constants/margin_right = -16
+
+[node name="Button" type="Button" parent="Card/Information/MarginContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "> "
+
+[connection signal="button_up" from="Card/Information/MarginContainer2/Button" to="." method="_on_button_button_up"]

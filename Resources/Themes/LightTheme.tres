@@ -1,0 +1,76 @@
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://bhcr0aba4v671"]
+
+[ext_resource type="Texture2D" uid="uid://bv8q0ug4i8jyo" path="res://Resources/Themes/Images/CheckboxUnchecked.png" id="1_86x1l"]
+[ext_resource type="FontFile" uid="uid://bxev5swttkepb" path="res://Resources/Fonts/Nunito-Medium.ttf" id="2_kidq4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gouv2"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 0.164706)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqqho"]
+content_margin_left = 5.0
+bg_color = Color(0.0509804, 0.529412, 0.337255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0fpw"]
+content_margin_left = 5.0
+bg_color = Color(0.0313726, 0.415686, 0.258824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3n2jt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hjuwp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vyx4r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ccg3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dsnm2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jacgx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2t3j"]
+content_margin_left = 8.0
+bg_color = Color(0.960784, 0.94902, 0.894118, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4epeb"]
+content_margin_left = 8.0
+bg_color = Color(0.960784, 0.94902, 0.894118, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+default_font = ExtResource("2_kidq4")
+default_font_size = 24
+Button/styles/disabled = SubResource("StyleBoxFlat_gouv2")
+Button/styles/hover = SubResource("StyleBoxFlat_jqqho")
+Button/styles/normal = SubResource("StyleBoxFlat_w0fpw")
+CheckBox/constants/h_separation = 8
+CheckBox/icons/unchecked = ExtResource("1_86x1l")
+CheckBox/styles/disabled = SubResource("StyleBoxTexture_3n2jt")
+CheckBox/styles/focus = SubResource("StyleBoxTexture_hjuwp")
+CheckBox/styles/hover = SubResource("StyleBoxTexture_vyx4r")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxTexture_4ccg3")
+CheckBox/styles/normal = SubResource("StyleBoxTexture_dsnm2")
+CheckBox/styles/pressed = SubResource("StyleBoxTexture_jacgx")
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+LineEdit/styles/normal = SubResource("StyleBoxFlat_m2t3j")
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+TextEdit/styles/normal = SubResource("StyleBoxFlat_4epeb")

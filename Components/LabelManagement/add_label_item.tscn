@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0ardem2xsmt6"]
+
+[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/Themes/StandardTheme.tres" id="1_2lkqy"]
+[ext_resource type="Script" path="res://Components/LabelManagement/add_label_item.gd" id="1_thf08"]
+
+[node name="AddLabelItem" type="Control" groups=["AddLabels"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2lkqy")
+script = ExtResource("1_thf08")
+
+[node name="LabelContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 46.0
+offset_bottom = 35.0
+theme_override_constants/separation = 10
+
+[node name="AddButton" type="CheckBox" parent="LabelContainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+text = "test"
+
+[connection signal="toggled" from="LabelContainer/AddButton" to="." method="_on_add_button_toggled"]

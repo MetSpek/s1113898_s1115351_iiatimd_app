@@ -1,0 +1,191 @@
+[gd_scene load_steps=8 format=3 uid="uid://i6ufkm5xqqww"]
+
+[ext_resource type="Theme" uid="uid://du2pqa4sphe8i" path="res://Resources/Themes/StandardTheme.tres" id="1_6x7id"]
+[ext_resource type="Script" path="res://Components/AddWork/add_work.gd" id="1_turug"]
+[ext_resource type="PackedScene" uid="uid://codwbw3x5wsxb" path="res://Components/LabelManagement/manage_labels.tscn" id="2_8lnsr"]
+[ext_resource type="Script" path="res://Components/AddWork/CameraController.gd" id="2_60y3i"]
+[ext_resource type="PackedScene" uid="uid://djevfhk7g786q" path="res://Components/Menu/menu.tscn" id="5_cvn3u"]
+
+[sub_resource type="Gradient" id="Gradient_8cuu2"]
+offsets = PackedFloat32Array(0.917197, 1)
+colors = PackedColorArray(0.752941, 0.752941, 0.752941, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4roho"]
+gradient = SubResource("Gradient_8cuu2")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="AddWork" type="Control" groups=["AddWork"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6x7id")
+script = ExtResource("1_turug")
+
+[node name="BackgroundRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0745098, 0.0941176, 0.0941176, 1)
+
+[node name="Menu" parent="." instance=ExtResource("5_cvn3u")]
+layout_mode = 1
+currentPage = "add_work"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 60.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="AddWorkContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 25
+
+[node name="PictureContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer"]
+layout_mode = 2
+script = ExtResource("2_60y3i")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_4roho")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GalleryButton" type="Button" parent="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "GalleryLabel"
+
+[node name="CameraButton" type="Button" parent="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "CameraLabel"
+
+[node name="DetailContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer"]
+layout_mode = 2
+
+[node name="TitleEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer"]
+layout_mode = 2
+placeholder_text = "TitleLabel"
+
+[node name="DescriptionEdit" type="TextEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+placeholder_text = "Description"
+
+[node name="DateContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="DateLabel" type="Label" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
+layout_mode = 2
+text = "DateLabel"
+
+[node name="DayEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
+layout_mode = 2
+theme_override_constants/minimum_character_width = 2
+alignment = 1
+max_length = 2
+
+[node name="MonthEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
+layout_mode = 2
+theme_override_constants/minimum_character_width = 2
+alignment = 1
+max_length = 2
+
+[node name="YearEdit" type="LineEdit" parent="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer"]
+layout_mode = 2
+theme_override_constants/minimum_character_width = 4
+alignment = 1
+
+[node name="LabelContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer"]
+layout_mode = 2
+
+[node name="AddLabelButton" type="Button" parent="MarginContainer/ScrollContainer/AddWorkContainer/LabelContainer" groups=["AddWork"]]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "AddLabelLabel"
+
+[node name="LabelLabel" type="Label" parent="MarginContainer/ScrollContainer/AddWorkContainer/LabelContainer"]
+layout_mode = 2
+text = "LabelsLabel"
+
+[node name="LabelsContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/AddWorkContainer/LabelContainer"]
+layout_mode = 2
+
+[node name="AddEntryButton" type="Button" parent="MarginContainer/ScrollContainer/AddWorkContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "AddEntryLabel"
+
+[node name="ManageLabels" parent="." instance=ExtResource("2_8lnsr")]
+visible = false
+layout_mode = 1
+label_screen_type = "add"
+
+[node name="Adding" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Adding"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.239216, 0.141176, 1)
+
+[node name="Label" type="Label" parent="Adding/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "LoadingLabel"
+horizontal_alignment = 1
+
+[connection signal="button_up" from="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer/GalleryButton" to="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer" method="_on_gallery_button_button_up"]
+[connection signal="button_up" from="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer/ButtonContainer/CameraButton" to="MarginContainer/ScrollContainer/AddWorkContainer/PictureContainer" method="_on_camera_button_button_up"]
+[connection signal="text_changed" from="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/DayEdit" to="." method="_on_day_edit_text_changed"]
+[connection signal="text_changed" from="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/MonthEdit" to="." method="_on_month_edit_text_changed"]
+[connection signal="text_changed" from="MarginContainer/ScrollContainer/AddWorkContainer/DetailContainer/DateContainer/YearEdit" to="." method="_on_year_edit_text_changed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/AddWorkContainer/LabelContainer/AddLabelButton" to="." method="_on_add_label_button_pressed"]
+[connection signal="button_up" from="MarginContainer/ScrollContainer/AddWorkContainer/AddEntryButton" to="." method="_on_add_entry_button_button_up"]
