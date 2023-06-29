@@ -84,20 +84,33 @@ func manageLabelList(list):
 		labels_container.add_child(item)
 
 # Formats the data so that a 0 is added when a day/month is lower than 10
-func formatDate():
-	var date = ''
+func formatDate(order):
+	var formattedDate = ''
+	var dates = {
+		'day': '',
+		'month': '',
+		'year' : ''
+	}
+	
 	if day_edit.text.length() < 2:
-		date += '0' + day_edit.text + "-"
+		dates.day = '0' + day_edit.text
 	else:
-		date += day_edit.text + "-"
+		dates.day = day_edit.text
 	
 	if month_edit.text.length() < 2:
-		date += '0' + month_edit.text + "-"
+		dates.month = '0' + month_edit.text
 	else:
-		date += month_edit.text + "-"
-	date += year_edit.text
+		dates.month = month_edit.text
+		
+	dates.year = year_edit.text
 	
-	return date
+	match order:
+		'normal':
+			formattedDate = dates.day + '-' + dates.month + '-' + dates.year
+		'reverse':
+			formattedDate =  dates.year + dates.month + dates.day
+	
+	return formattedDate
 
 func _on_add_label_button_pressed():
 	manage_labels.visible = true
@@ -110,13 +123,13 @@ func _on_add_entry_button_button_up():
 	await get_tree().create_timer(.5).timeout
 	
 	# Set all the needed info in the diary entry and save it
-	diary_entry['id'] = int(year_edit.text + month_edit.text + day_edit.text)
+	diary_entry['id'] = int(formatDate('reverse'))
 	diary_entry["title"] = title_edit.text
 	diary_entry["desc"] = description_edit.text
 	if labels.size() > 0:
 		for label in labels:
 			diary_entry["labels"].append(label)
-	diary_entry["date"] = formatDate()
+	diary_entry["date"] = formatDate('normal')
 	
 	var img_string = "user://" + diary_entry["title"] + diary_entry["date"] + ".png"
 	diary_entry["img"] = img_string

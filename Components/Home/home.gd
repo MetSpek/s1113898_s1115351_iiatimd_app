@@ -28,6 +28,9 @@ func _ready():
 		
 		card_container.add_child(card)
 
+	# sort the entries
+	_on_option_button_item_selected(0)
+	
 # searchbar on change update which cards are shown
 func _on_line_edit_text_changed(new_text):
 	if line_edit.text == "":

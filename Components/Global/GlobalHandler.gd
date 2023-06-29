@@ -10,7 +10,27 @@ var current_diary_view = "normal"
 var current_language = "en"
 
 var labels = []
-var diary_entries = []
+var diary_entries = [{
+"id": 20221012,
+"img": "res://Resources/Textures/12Stuck.png",
+"title": "Stuck",
+"desc": "Inktober day 12, stuck, your typical pigeon having a problem with the bread its been given.",
+"date": "12-10-2022",
+"labels": ["Inktober", "Pigeon", "Animal"]},
+{
+"id": 20221015,
+"img": "res://Resources/Textures/15Helmet.png",
+"title": "Helmet",
+"desc": "Inktober day 15, helmet, fantasy spartan helmet with flowers as decoration.",
+"date": "15-10-2022",
+"labels": ["Inktober", "Helmet", "Flowers"]},
+{
+"id": 20221009,
+"img": "res://Resources/Textures/9Pressure.png",
+"title": "Pressure",
+"desc": "Inktober day 9, pressure, monsters of the deep sea.",
+"date": "09-10-2022",
+"labels": ["Inktober", "Pressure", "Animal"]}]
 var selected_entry
 
 func _ready():
